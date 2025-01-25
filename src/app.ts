@@ -18,17 +18,20 @@ app.post(
   async (req: Request, res: Response): Promise<any> => {
     try {
       const payload = JSON.stringify(req.body);
+      console.log(payload);
       const signature = req.get("X-Hub-Signature-256") || "";
 
       // Verify webhook signature
       const isValidSignature = SignatureVerifier.verifyWebhookSignature(
         payload,
-        GITHUB_WEBHOOK_SECRET,
+        "5Fvqmk63bAQCTBeDmCQcQfuZJq1Lvywu3569MtAotSw2CRxr",
         signature
       );
       if (!isValidSignature) {
         return res.status(403).send("Invalid webhook signature");
       }
+
+      console.log("Webhook signature verified--");
 
       // Process the webhook
       webhookController.handleMergedPullRequest(req.body);
