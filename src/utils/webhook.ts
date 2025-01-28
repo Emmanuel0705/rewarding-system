@@ -6,10 +6,10 @@ export function extractSolanaWallet(
 ): string | null {
   const solanaWalletPattern = /<([\w]{32,44})>/;
 
-  const titleMatch = title.match(solanaWalletPattern);
+  const titleMatch = title?.match(solanaWalletPattern);
   if (titleMatch) return titleMatch[1];
 
-  const bodyMatch = body.match(solanaWalletPattern);
+  const bodyMatch = body?.match(solanaWalletPattern);
   return bodyMatch ? bodyMatch[1] : null;
 }
 
