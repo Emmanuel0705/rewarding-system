@@ -13,7 +13,7 @@ const port = 3020;
 
 console.log(process.env.TWITTER_APP_KEY);
 
-app.post("/webhook", handleWebhook);
+app.post("/webhook", verifySignature, handleWebhook);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
