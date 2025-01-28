@@ -46,6 +46,8 @@ export async function sendToken(
 
     //get token mint balance
 
+    console.log(`SENDING ${amount} tokens to ${recipientAddress}`);
+
     const signature = await transfer(
       connection,
       senderKeypair,
