@@ -33,6 +33,7 @@ export async function createTwitterPost(payload: WebhookPayload, expL: string) {
   });
 
   const postContent = getTwitterContent(payload, expL);
+  console.log("MAKING TWITTER POST");
 
   try {
     const tweet = await twitterClient.v2.tweet(postContent);

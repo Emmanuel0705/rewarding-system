@@ -11,8 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const port = 3020;
 
-console.log(process.env.TWITTER_APP_KEY);
-
 app.post("/webhook", verifySignature, handleWebhook);
 
 app.listen(port, () => {

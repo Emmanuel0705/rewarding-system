@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import crypto from "crypto";
-const GITHUB_SECRET = process.env.GITHUB_SECRET || "random";
+const GITHUB_SECRET = process.env.GITHUB_SECRET || "ABCD123";
 
 export const verifySignature = async (
   req: Request,
@@ -16,9 +16,6 @@ export const verifySignature = async (
   const payload = JSON.stringify(req.body);
   const hmac = crypto.createHmac("sha256", GITHUB_SECRET);
   const digest = `sha256=${hmac.update(payload).digest("hex")}`;
-
-  console.log(`Signature: ${signature}`);
-  console.log(`Digest: ${digest}`);
 
   const isValidsignature = crypto.timingSafeEqual(
     Buffer.from(signature),

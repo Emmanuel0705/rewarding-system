@@ -12,20 +12,20 @@ export const handleWebhook = async (req: Request, res: Response) => {
   console.log(`Received event: ${event}`);
   res.status(200).send("Event received");
 
-  const payload: WebhookPayload = JSON.parse(req.body?.payload);
+  const payload: WebhookPayload = req.body?.payload;
 
   // Process the event
   if (event === "pull_request") {
     const isMerged = isPRMergedToMaster(payload);
     if (isMerged) {
       const address = processWalletFromPR(payload.pull_request);
-      let _explorerLink;
+      let explorerUrl;
       if (address) {
         const { explorerLink } = await sendToken(address, REWARDING_AMOUNT);
-        _explorerLink = explorerLink;
+        explorerUrl = explorerLink;
       }
 
-      await createTwitterPost(payload, _explorerLink);
+      await createTwitterPost(payload, explorerUrl);
     }
   } else {
     console.log(`Unhandled event: ${event}`);
