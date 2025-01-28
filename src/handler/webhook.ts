@@ -12,7 +12,7 @@ export const handleWebhook = async (req: Request, res: Response) => {
   console.log(`Received event: ${event}`);
   res.status(200).send("Event received");
 
-  const payload: WebhookPayload = req.body?.payload;
+  const payload: WebhookPayload = req.body;
 
   // Process the event
   if (event === "pull_request") {
