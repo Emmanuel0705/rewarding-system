@@ -1,12 +1,17 @@
-import express, { Request, Response } from "express";
-
+import express from "express";
 import bodyParser from "body-parser";
-import { handleWebhook } from "./webhook";
+import dotenv from "dotenv";
+import { handleWebhook } from "./handler/webhook";
+import { verifySignature } from "./middleware/signature";
+
+dotenv.config();
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const port = 3020;
+
+console.log(process.env.TWITTER_APP_KEY);
 
 app.post("/webhook", handleWebhook);
 
