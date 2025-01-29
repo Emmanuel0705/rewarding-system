@@ -4,7 +4,7 @@
 
 This project automatically rewards contributors to open source projects with tokens when their pull requests are merged to the master branch. It creates a seamless integration between GitHub, Solana blockchain, and Twitter to:
 
-1. Monitor pull request activities via GitHub webhooks
+1. Monitor pull request activities via GitHub webhooks.
 2. Send tokens to contributors' wallets when their PRs are merged
 3. Announce the contributions and rewards on Twitter
 
