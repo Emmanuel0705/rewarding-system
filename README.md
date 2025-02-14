@@ -6,9 +6,9 @@ This project automatically rewards contributors to open source projects with tok
 
 1. Monitor pull request activities via GitHub webhooks.
 2. Send tokens to contributors' wallets when their PRs are merged
-3. Announce the contributions and rewards on Twitter
+3. Announce the contributions and rewards on Twitter..
 
-This creates a transparent and automated way to incentivize and recognize open source contributions..
+This creates a transparent and automated way to incentivize and recognize open source contributions...
 
 ## Features
 
