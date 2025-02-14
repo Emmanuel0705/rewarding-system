@@ -1,4 +1,4 @@
-# Open Source Contributor Rewards Bot
+# Open Source Contributor Rewards Bot...
 
 ## Overview
 
